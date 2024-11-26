@@ -1,0 +1,9 @@
+services:
+  transcriber:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ${INPUT_FILE}:/input.ogg
+      - ${OUTPUT_DIR:-./output}:/output
+    command: /input.ogg /output/transcript.txt
